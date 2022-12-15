@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.owner.model;
 
+import org.monolithic.petclinic.model.NamedEntity;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 

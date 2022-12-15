@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.owner.model;
 
+import org.monolithic.petclinic.model.NamedEntity;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 

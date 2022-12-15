@@ -22,6 +22,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import org.monolithic.petclinic.model.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**

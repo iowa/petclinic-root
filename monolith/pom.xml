@@ -63,6 +63,12 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.monolithic.petclinic</groupId>
+            <artifactId>petclinic-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         
         <!-- Test dependencies -->
         <dependency>

@@ -17,9 +17,9 @@ package org.springframework.samples.petclinic.owner.db;
 
 import java.util.List;
 
+import org.monolithic.petclinic.model.BaseEntity;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.repository.Repository;
-import org.springframework.samples.petclinic.owner.model.BaseEntity;
 import org.springframework.samples.petclinic.owner.model.Visit;
 
 /**

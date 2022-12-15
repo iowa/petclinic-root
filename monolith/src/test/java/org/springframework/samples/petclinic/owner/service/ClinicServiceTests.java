@@ -16,10 +16,10 @@
 package org.springframework.samples.petclinic.owner.service;
 
 import org.junit.jupiter.api.Test;
+import org.monolithic.petclinic.model.BaseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.orm.ObjectRetrievalFailureException;
-import org.springframework.samples.petclinic.owner.model.BaseEntity;
 import org.springframework.samples.petclinic.owner.model.Owner;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.PetType;
