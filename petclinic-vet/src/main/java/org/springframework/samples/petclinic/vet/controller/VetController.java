@@ -17,10 +17,11 @@ package org.springframework.samples.petclinic.vet.controller;
 
 import org.monolithic.petclinic.dto.VetDTO;
 import org.springframework.samples.petclinic.vet.service.VetService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Juergen Hoeller
@@ -28,8 +29,8 @@ import java.util.List;
  * @author Ken Krebs
  * @author Arjen Poutsma
  */
-@RestController
-public class VetController {
+@Controller
+class VetController {
 
     private final VetService service;
 
@@ -37,7 +38,7 @@ public class VetController {
         this.service = service;
     }
 
-    @GetMapping(value = "/vets")
+    @GetMapping("/vets")
     public List<VetDTO> showVetList() {
         return service.allVetsDto();
     }
