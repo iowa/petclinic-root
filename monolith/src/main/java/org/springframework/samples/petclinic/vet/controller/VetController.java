@@ -42,11 +42,4 @@ class VetController {
         return "vets/vetList";
     }
 
-    /*
-    @GetMapping("/vets")
-    public List<VetDTO> showVetList() {
-        return service.allVetsDto();
-    }
-    */
-
 }

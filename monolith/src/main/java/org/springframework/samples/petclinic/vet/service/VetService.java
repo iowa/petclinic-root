@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.vet.service;
 
 import org.monolithic.petclinic.dto.VetDTO;
 import org.monolithic.petclinic.model.NamedEntity;
+import org.springframework.samples.petclinic.owner.service.VetRestClient;
 import org.springframework.samples.petclinic.vet.db.VetRepository;
 import org.springframework.samples.petclinic.vet.model.Vet;
 import org.springframework.stereotype.Service;
