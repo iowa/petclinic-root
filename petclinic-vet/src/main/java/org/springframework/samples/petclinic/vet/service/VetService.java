@@ -19,9 +19,6 @@ public class VetService {
         this.vets = vets;
     }
 
-    public Collection<Vet> allVets() {
-        return this.vets.findAll();
-    }
 
     public List<VetDTO> allVetsDto() {
         return this.vets.findAll().stream().map(this::toDto).collect(Collectors.toList());

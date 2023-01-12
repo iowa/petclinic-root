@@ -15,10 +15,12 @@
  */
 package org.springframework.samples.petclinic.vet.controller;
 
+import org.monolithic.petclinic.dto.VetDTO;
 import org.springframework.samples.petclinic.vet.service.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -37,16 +39,8 @@ class VetController {
     }
 
     @GetMapping("/vets")
-    public String showVetList(Map<String, Object> model) {
-        model.put("vets", this.service.allVetsDto());
-        return "vets/vetList";
-    }
-
-    /*
-    @GetMapping("/vets")
     public List<VetDTO> showVetList() {
         return service.allVetsDto();
     }
-    */
 
 }
