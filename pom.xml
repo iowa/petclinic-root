@@ -19,6 +19,7 @@
         <module>activemq</module>
         <module>monolith</module>
         <module>petclinic-common</module>
+        <module>petclinic-vet</module>
     </modules>
 
     <properties>
