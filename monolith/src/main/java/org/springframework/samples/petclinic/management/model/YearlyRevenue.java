@@ -1,4 +1,4 @@
-package org.springframework.samples.petclinic.owner.model;
+package org.springframework.samples.petclinic.management.model;
 
 public class YearlyRevenue {
 

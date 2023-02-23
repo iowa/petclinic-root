@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.model;
+package org.springframework.samples.petclinic.management.model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.samples.petclinic.owner.db.VisitRepository;
+import org.springframework.samples.petclinic.management.db.RevenueRepository;
 
 import java.util.List;
 
@@ -28,13 +28,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RepositoryIntegrationTests {
 
     @Autowired
-    VisitRepository visitsRepository;
+    RevenueRepository revenueRepository;
 
     @Test
-    void testFindVisits() {
-        List<Visit> visits = this.visitsRepository.findByPetId(7);
-        assertThat(visits).hasSize(2);
-        assertThat(visits.get(0).getCost()).isEqualTo(100);
+    void testGenerateRevenueReport() {
+        List<YearlyRevenue> yearlyRevenues = this.revenueRepository.listYearlyRevenue();
+        assertThat(yearlyRevenues).hasSize(1);
+        assertThat(yearlyRevenues.get(0).getTotal()).isEqualTo(800L);
     }
-
 }

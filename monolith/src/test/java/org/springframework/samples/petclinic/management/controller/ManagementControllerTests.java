@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.controller;
+package org.springframework.samples.petclinic.management.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.samples.petclinic.owner.model.YearlyRevenue;
-import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.management.model.YearlyRevenue;
+import org.springframework.samples.petclinic.management.service.ManagementService;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -44,7 +44,7 @@ class ManagementControllerTests {
     MockMvc mockMvc;
 
     @MockBean
-    ClinicService service;
+    ManagementService service;
 
     @BeforeEach
     void setup() {

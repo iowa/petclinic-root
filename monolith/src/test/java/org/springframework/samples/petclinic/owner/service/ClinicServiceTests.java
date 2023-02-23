@@ -24,12 +24,10 @@ import org.springframework.samples.petclinic.owner.model.Owner;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.PetType;
 import org.springframework.samples.petclinic.owner.model.Visit;
-import org.springframework.samples.petclinic.owner.model.YearlyRevenue;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -181,14 +179,6 @@ class ClinicServiceTests {
         assertThat(visitArr[0].getCost()).isEqualTo(100);
     }
 
-    @Test
-    void shouldListYearlyRevenue() {
-        List<YearlyRevenue> yearlyRevenues = service.listYearlyRevenue();
-
-        assertThat(yearlyRevenues).hasSize(1);
-        assertThat(yearlyRevenues.get(0).getTotal()).isEqualTo(800L);
-    }
-
     /**
      * Look up the entity of the given class with the given id in the given collection.
      *
@@ -199,7 +189,7 @@ class ClinicServiceTests {
      * @throws ObjectRetrievalFailureException if the entity was not found
      */
     private <T extends BaseEntity> T getById(Collection<T> entities, Class<T> entityClass, int entityId)
-        throws ObjectRetrievalFailureException {
+            throws ObjectRetrievalFailureException {
         for (T entity : entities) {
             if (entity.getId() == entityId && entityClass.isInstance(entity)) {
                 return entity;
