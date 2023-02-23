@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.samples.petclinic.management.service.ManagementService;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.service.ClinicService;
 import org.springframework.test.web.servlet.MockMvc;
@@ -44,6 +45,8 @@ class VisitControllerTests {
 
     @MockBean
     ClinicService service;
+    @MockBean
+    ManagementService managementService;
 
     @BeforeEach
     void init() {
@@ -60,10 +63,10 @@ class VisitControllerTests {
     @Test
     void testProcessNewVisitFormSuccess() throws Exception {
         mockMvc.perform(post("/owners/*/pets/{petId}/visits/new", TEST_PET_ID) //
-                .param("name", "George") //
-                .param("description", "Visit Description")
-                .param("cost", "300") //
-        ) //
+                        .param("name", "George") //
+                        .param("description", "Visit Description")
+                        .param("cost", "300") //
+                ) //
                 .andExpect(status().is3xxRedirection()) //
                 .andExpect(view().name("redirect:/owners/{ownerId}"));
     }
@@ -71,8 +74,8 @@ class VisitControllerTests {
     @Test
     void testProcessNewVisitFormHasErrors() throws Exception {
         mockMvc.perform(post("/owners/*/pets/{petId}/visits/new", TEST_PET_ID) //
-                .param("name", "George") //
-        ) //
+                        .param("name", "George") //
+                ) //
                 .andExpect(model().attributeHasErrors("visit")) //
                 .andExpect(status().isOk()) //
                 .andExpect(view().name("pets/createOrUpdateVisitForm"));

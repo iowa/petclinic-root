@@ -19,4 +19,20 @@ public class VisitRevenue extends BaseEntity {
     @Column
     private Integer cost;
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(final LocalDate date) {
+        this.date = date;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(final Integer cost) {
+        this.cost = cost;
+    }
+
 }

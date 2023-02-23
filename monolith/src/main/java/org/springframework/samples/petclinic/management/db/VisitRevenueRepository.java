@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.samples.petclinic.management.model.VisitRevenue;
 import org.springframework.samples.petclinic.management.model.YearlyRevenue;
-import org.springframework.samples.petclinic.owner.model.Visit;
 
 import java.util.List;
 
@@ -19,6 +18,6 @@ public interface VisitRevenueRepository extends Repository<VisitRevenue, Integer
             "group by YEAR(v.date)")
     List<YearlyRevenue> listYearlyRevenue();
 
-    void save(Visit visit) throws DataAccessException;
+    void save(VisitRevenue visit) throws DataAccessException;
 
 }

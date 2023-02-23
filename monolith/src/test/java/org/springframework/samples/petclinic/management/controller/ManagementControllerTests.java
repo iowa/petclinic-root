@@ -22,6 +22,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.samples.petclinic.management.model.YearlyRevenue;
 import org.springframework.samples.petclinic.management.service.ManagementService;
+import org.springframework.samples.petclinic.owner.controller.ManagementController;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;

@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.owner.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.management.service.ManagementService;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.Visit;
 import org.springframework.samples.petclinic.owner.service.ClinicService;
@@ -39,10 +41,13 @@ import java.util.Map;
 class VisitController {
 
     private final ClinicService service;
+    private final ManagementService managementService;
 
 
-    public VisitController(ClinicService service) {
+    @Autowired
+    public VisitController(ClinicService service, final ManagementService managementService) {
         this.service = service;
+        this.managementService = managementService;
     }
 
     /**
@@ -76,7 +81,8 @@ class VisitController {
         }
 
         visit.setId(null);
-        this.service.save(visit);
+        service.save(visit);
+        managementService.save(visit);
         return "redirect:/owners/{ownerId}";
     }
 

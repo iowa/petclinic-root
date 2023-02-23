@@ -1,4 +1,4 @@
-package org.springframework.samples.petclinic.management.controller;
+package org.springframework.samples.petclinic.owner.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.management.service.ManagementService;
@@ -9,7 +9,6 @@ import java.util.Map;
 
 @Controller
 public class ManagementController {
-
     @Autowired
     private ManagementService service;
 
