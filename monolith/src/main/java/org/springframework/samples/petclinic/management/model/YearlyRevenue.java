@@ -2,8 +2,8 @@ package org.springframework.samples.petclinic.management.model;
 
 public class YearlyRevenue {
 
-    private Integer year;
-    private Long total;
+    private final Integer year;
+    private final Long total;
 
     public YearlyRevenue(Integer year, Long total) {
         this.year = year;

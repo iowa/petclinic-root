@@ -1,0 +1,22 @@
+package org.springframework.samples.petclinic.management.model;
+
+import org.monolithic.petclinic.model.BaseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "visits_revenue")
+public class VisitRevenue extends BaseEntity {
+
+    @Column(name = "visit_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
+    @Column
+    private Integer cost;
+
+}
