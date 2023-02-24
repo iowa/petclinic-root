@@ -16,10 +16,10 @@
 package org.springframework.samples.petclinic.owner.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.management.service.ManagementService;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.Visit;
 import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.owner.service.management.ManagementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;

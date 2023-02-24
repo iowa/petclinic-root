@@ -17,10 +17,10 @@ package org.springframework.samples.petclinic.management.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.monolithic.petclinic.dto.YearlyRevenueDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.samples.petclinic.management.model.YearlyRevenue;
 import org.springframework.samples.petclinic.management.service.ManagementService;
 import org.springframework.samples.petclinic.owner.controller.ManagementController;
 import org.springframework.test.web.servlet.MockMvc;
@@ -37,8 +37,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(controllers = ManagementController.class)
 class ManagementControllerTests {
 
-    static final List<YearlyRevenue> EXPECTED_REVENUES = asList(
-        new YearlyRevenue(2020, 333L)
+    static final List<YearlyRevenueDTO> EXPECTED_REVENUES = asList(
+        new YearlyRevenueDTO(2020, 333L)
     );
 
     @Autowired

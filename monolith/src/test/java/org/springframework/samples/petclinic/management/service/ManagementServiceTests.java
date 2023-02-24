@@ -16,9 +16,9 @@
 package org.springframework.samples.petclinic.management.service;
 
 import org.junit.jupiter.api.Test;
+import org.monolithic.petclinic.dto.YearlyRevenueDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.samples.petclinic.management.model.YearlyRevenue;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ class ManagementServiceTests {
 
     @Test
     void shouldListYearlyRevenue() {
-        List<YearlyRevenue> yearlyRevenues = service.listYearlyRevenue();
+        List<YearlyRevenueDTO> yearlyRevenues = service.listYearlyRevenue();
 
         assertThat(yearlyRevenues).hasSize(1);
         assertThat(yearlyRevenues.get(0).getTotal()).isEqualTo(800L);

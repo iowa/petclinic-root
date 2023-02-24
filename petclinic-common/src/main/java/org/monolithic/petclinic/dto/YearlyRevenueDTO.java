@@ -1,11 +1,11 @@
-package org.springframework.samples.petclinic.management.model;
+package org.monolithic.petclinic.dto;
 
-public class YearlyRevenue {
+public class YearlyRevenueDTO {
 
     private final Integer year;
     private final Long total;
 
-    public YearlyRevenue(Integer year, Long total) {
+    public YearlyRevenueDTO(Integer year, Long total) {
         this.year = year;
         this.total = total;
     }
