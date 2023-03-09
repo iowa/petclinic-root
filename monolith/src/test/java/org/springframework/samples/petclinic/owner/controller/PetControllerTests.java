@@ -24,6 +24,8 @@ import org.springframework.samples.petclinic.owner.model.Owner;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.PetType;
 import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.pet.controller.PetController;
+import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
@@ -49,15 +51,17 @@ class PetControllerTests {
 
     @MockBean
     ClinicService service;
+    @MockBean
+    PetService petService;
 
     @BeforeEach
     void setup() {
         PetType cat = new PetType();
         cat.setId(3);
         cat.setName("hamster");
-        given(this.service.petTypes()).willReturn(Collections.singletonList(cat));
+        given(this.petService.petTypes()).willReturn(Collections.singletonList(cat));
         given(this.service.ownerById(TEST_OWNER_ID)).willReturn(new Owner());
-        given(this.service.petById(TEST_PET_ID)).willReturn(new Pet());
+        given(this.petService.petById(TEST_PET_ID)).willReturn(new Pet());
     }
 
     @Test

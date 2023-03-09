@@ -20,6 +20,7 @@ import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.Visit;
 import org.springframework.samples.petclinic.owner.service.ClinicService;
 import org.springframework.samples.petclinic.owner.service.management.ManagementService;
+import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,12 +42,14 @@ import java.util.Map;
 class VisitController {
 
     private final ClinicService service;
+    private final PetService petService;
     private final ManagementService managementService;
 
 
     @Autowired
-    public VisitController(ClinicService service, final ManagementService managementService) {
+    public VisitController(ClinicService service, final PetService petService, final ManagementService managementService) {
         this.service = service;
+        this.petService = petService;
         this.managementService = managementService;
     }
 
@@ -59,7 +62,7 @@ class VisitController {
      */
     @ModelAttribute("visit")
     public Visit loadPetWithVisit(@PathVariable("petId") int petId, Map<String, Object> model) {
-        Pet pet = this.service.petById(petId);
+        Pet pet = this.petService.petById(petId);
         pet.setVisitsInternal(this.service.visitsByPetId(petId));
         model.put("pet", pet);
         Visit visit = new Visit();

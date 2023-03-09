@@ -39,7 +39,7 @@ import java.util.Map;
  * @author Michael Isvy
  */
 @Controller
-class OwnerController {
+public class OwnerController {
 
     private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
     private final ClinicService service;

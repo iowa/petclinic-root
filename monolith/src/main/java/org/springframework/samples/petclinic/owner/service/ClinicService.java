@@ -8,6 +8,7 @@ import org.springframework.samples.petclinic.owner.model.Owner;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.PetType;
 import org.springframework.samples.petclinic.owner.model.Visit;
+import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -17,18 +18,15 @@ import java.util.List;
 public class ClinicService {
 
     private final OwnerRepository owners;
-    private final PetRepository pets;
-    private final VisitRepository visits;
 
+    private final VisitRepository visits;
 
     @Autowired
     public ClinicService(
             OwnerRepository owners,
-            PetRepository pets,
             VisitRepository visits
     ) {
         this.owners = owners;
-        this.pets = pets;
         this.visits = visits;
     }
 
@@ -41,14 +39,6 @@ public class ClinicService {
         return owners.findById(i);
     }
 
-    public Pet petById(int id) {
-        return pets.findById(id);
-    }
-
-    public List<PetType> petTypes() {
-        return pets.findPetTypes();
-    }
-
     public List<Visit> visitsByPetId(int petId) {
         return visits.findByPetId(petId);
     }
@@ -56,10 +46,6 @@ public class ClinicService {
 
     public void save(Owner owner) {
         owners.save(owner);
-    }
-
-    public void save(Pet pet) {
-        pets.save(pet);
     }
 
     public void save(Visit visit) {

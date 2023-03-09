@@ -23,6 +23,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.service.ClinicService;
 import org.springframework.samples.petclinic.owner.service.management.ManagementService;
+import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.given;
@@ -46,11 +47,13 @@ class VisitControllerTests {
     @MockBean
     ClinicService service;
     @MockBean
+    PetService petService;
+    @MockBean
     ManagementService managementService;
 
     @BeforeEach
     void init() {
-        given(this.service.petById(TEST_PET_ID)).willReturn(new Pet());
+        given(this.petService.petById(TEST_PET_ID)).willReturn(new Pet());
     }
 
     @Test

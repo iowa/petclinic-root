@@ -24,6 +24,7 @@ import org.springframework.samples.petclinic.owner.model.Owner;
 import org.springframework.samples.petclinic.owner.model.Pet;
 import org.springframework.samples.petclinic.owner.model.PetType;
 import org.springframework.samples.petclinic.owner.model.Visit;
+import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -44,6 +45,8 @@ class ClinicServiceTests {
 
     @Autowired
     ClinicService service;
+    @Autowired
+    PetService petService;
 
     @Test
     void shouldFindOwnersByLastName() {
@@ -99,14 +102,14 @@ class ClinicServiceTests {
 
     @Test
     void shouldFindPetWithCorrectId() {
-        Pet pet7 = service.petById(7);
+        Pet pet7 = petService.petById(7);
         assertThat(pet7.getName()).startsWith("Samantha");
         assertThat(pet7.getOwner().getFirstName()).isEqualTo("Jean");
     }
 
     @Test
     void shouldFindAllPetTypes() {
-        Collection<PetType> petTypes = service.petTypes();
+        Collection<PetType> petTypes = petService.petTypes();
 
         PetType petType1 = getById(petTypes, PetType.class, 1);
         assertThat(petType1.getName()).isEqualTo("cat");
@@ -122,13 +125,13 @@ class ClinicServiceTests {
 
         Pet pet = new Pet();
         pet.setName("bowser");
-        Collection<PetType> types = service.petTypes();
+        Collection<PetType> types = petService.petTypes();
         pet.setType(getById(types, PetType.class, 2));
         pet.setBirthDate(LocalDate.now());
         owner6.addPet(pet);
         assertThat(owner6.getPets().size()).isEqualTo(found + 1);
 
-        service.save(pet);
+        petService.save(pet);
         service.save(owner6);
 
         owner6 = service.ownerById(6);
@@ -140,30 +143,30 @@ class ClinicServiceTests {
     @Test
     @Transactional
     void shouldUpdatePetName() {
-        Pet pet7 = service.petById(7);
+        Pet pet7 = petService.petById(7);
         String oldName = pet7.getName();
 
         String newName = oldName + "X";
         pet7.setName(newName);
-        service.save(pet7);
+        petService.save(pet7);
 
-        pet7 = service.petById(7);
+        pet7 = petService.petById(7);
         assertThat(pet7.getName()).isEqualTo(newName);
     }
 
     @Test
     @Transactional
     void shouldAddNewVisitForPet() {
-        Pet pet7 = service.petById(7);
+        Pet pet7 = petService.petById(7);
         int found = pet7.getVisits().size();
         Visit visit = new Visit();
         pet7.addVisit(visit);
         visit.setDescription("test");
         visit.setCost(100);
         service.save(visit);
-        service.save(pet7);
+        petService.save(pet7);
 
-        pet7 = service.petById(7);
+        pet7 = petService.petById(7);
         assertThat(pet7.getVisits().size()).isEqualTo(found + 1);
         assertThat(visit.getId()).isNotNull();
     }
