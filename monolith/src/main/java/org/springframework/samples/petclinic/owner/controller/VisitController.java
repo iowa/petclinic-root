@@ -79,7 +79,6 @@ class VisitController {
         if (result.hasErrors()) {
             return "pets/createOrUpdateVisitForm";
         }
-
         visit.setId(null);
         service.save(visit);
         managementService.save(visit);

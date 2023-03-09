@@ -19,6 +19,14 @@ public class VisitRevenue extends BaseEntity {
     @Column
     private Integer cost;
 
+    public VisitRevenue() {
+    }
+
+    public VisitRevenue(final LocalDate date, final Integer cost) {
+        this.date = date;
+        this.cost = cost;
+    }
+
     public LocalDate getDate() {
         return date;
     }
