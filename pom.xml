@@ -20,6 +20,7 @@
         <module>monolith</module>
         <module>petclinic-common</module>
         <module>petclinic-vet</module>
+        <module>petclinic-management</module>
     </modules>
 
     <properties>
