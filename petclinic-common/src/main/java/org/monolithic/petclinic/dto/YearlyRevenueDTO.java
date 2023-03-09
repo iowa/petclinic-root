@@ -2,8 +2,11 @@ package org.monolithic.petclinic.dto;
 
 public class YearlyRevenueDTO {
 
-    private final Integer year;
-    private final Long total;
+    private Integer year;
+    private Long total;
+
+    public YearlyRevenueDTO() {
+    }
 
     public YearlyRevenueDTO(Integer year, Long total) {
         this.year = year;
@@ -21,8 +24,8 @@ public class YearlyRevenueDTO {
     @Override
     public String toString() {
         return "YearlyRevenue{" +
-            "year=" + year +
-            ", total=" + total +
-            '}';
+                "year=" + year +
+                ", total=" + total +
+                '}';
     }
 }
