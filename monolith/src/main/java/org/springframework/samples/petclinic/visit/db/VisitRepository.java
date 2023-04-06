@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.db;
+package org.springframework.samples.petclinic.visit.db;
 
 import java.util.List;
 
 import org.monolithic.petclinic.model.BaseEntity;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.repository.Repository;
-import org.springframework.samples.petclinic.owner.model.Visit;
+import org.springframework.samples.petclinic.visit.model.Visit;
 
 /**
  * Repository class for <code>Visit</code> domain objects All method names are compliant with Spring Data naming

@@ -4,7 +4,7 @@ import org.monolithic.petclinic.dto.VisitRevenueDTO;
 import org.monolithic.petclinic.dto.YearlyRevenueDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.samples.petclinic.owner.model.Visit;
+import org.springframework.samples.petclinic.visit.model.Visit;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

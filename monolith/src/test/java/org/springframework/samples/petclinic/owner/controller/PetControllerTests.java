@@ -21,9 +21,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.samples.petclinic.owner.model.Owner;
-import org.springframework.samples.petclinic.owner.model.Pet;
-import org.springframework.samples.petclinic.owner.model.PetType;
-import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.pet.model.Pet;
+import org.springframework.samples.petclinic.pet.model.PetType;
+import org.springframework.samples.petclinic.owner.service.OwnerService;
 import org.springframework.samples.petclinic.pet.controller.PetController;
 import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.test.web.servlet.MockMvc;
@@ -50,7 +50,7 @@ class PetControllerTests {
     MockMvc mockMvc;
 
     @MockBean
-    ClinicService service;
+    OwnerService service;
     @MockBean
     PetService petService;
 

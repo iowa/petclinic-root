@@ -2,7 +2,6 @@ package org.springframework.samples.petclinic.owner.service.vet;
 
 import org.monolithic.petclinic.dto.VetDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.owner.service.VetRestClient;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

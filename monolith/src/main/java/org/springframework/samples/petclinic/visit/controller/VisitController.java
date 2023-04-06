@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.controller;
+package org.springframework.samples.petclinic.visit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.owner.model.Pet;
-import org.springframework.samples.petclinic.owner.model.Visit;
-import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.visit.service.VisitService;
+import org.springframework.samples.petclinic.pet.model.Pet;
+import org.springframework.samples.petclinic.visit.model.Visit;
 import org.springframework.samples.petclinic.owner.service.management.ManagementService;
 import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.stereotype.Controller;
@@ -39,16 +39,16 @@ import java.util.Map;
  * @author Dave Syer
  */
 @Controller
-class VisitController {
+public class VisitController {
 
-    private final ClinicService service;
+    private final VisitService visitService;
     private final PetService petService;
     private final ManagementService managementService;
 
 
     @Autowired
-    public VisitController(ClinicService service, final PetService petService, final ManagementService managementService) {
-        this.service = service;
+    public VisitController(VisitService visitService, final PetService petService, final ManagementService managementService) {
+        this.visitService = visitService;
         this.petService = petService;
         this.managementService = managementService;
     }
@@ -63,7 +63,7 @@ class VisitController {
     @ModelAttribute("visit")
     public Visit loadPetWithVisit(@PathVariable("petId") int petId, Map<String, Object> model) {
         Pet pet = this.petService.petById(petId);
-        pet.setVisitsInternal(this.service.visitsByPetId(petId));
+        pet.setVisitsInternal(this.visitService.visitsByPetId(petId));
         model.put("pet", pet);
         Visit visit = new Visit();
         pet.addVisit(visit);
@@ -83,7 +83,7 @@ class VisitController {
             return "pets/createOrUpdateVisitForm";
         }
         visit.setId(null);
-        service.save(visit);
+        visitService.save(visit);
         managementService.save(visit);
         return "redirect:/owners/{ownerId}";
     }

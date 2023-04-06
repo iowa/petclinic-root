@@ -1,4 +1,4 @@
-package org.springframework.samples.petclinic.owner.service;
+package org.springframework.samples.petclinic.owner.service.vet;
 
 
 import org.monolithic.petclinic.dto.VetDTO;

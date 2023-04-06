@@ -16,8 +16,8 @@
 package org.springframework.samples.petclinic.owner.controller;
 
 import org.springframework.samples.petclinic.owner.model.Owner;
-import org.springframework.samples.petclinic.owner.model.Pet;
-import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.visit.service.VisitService;
+import org.springframework.samples.petclinic.owner.service.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,9 +42,9 @@ import java.util.Map;
 public class OwnerController {
 
     private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
-    private final ClinicService service;
+    private final OwnerService service;
 
-    public OwnerController(ClinicService service) {
+    public OwnerController(OwnerService service) {
         this.service = service;
     }
 
@@ -65,7 +65,6 @@ public class OwnerController {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         }
-        
         this.service.save(owner);
         return "redirect:/owners/" + owner.getId();
     }
@@ -110,11 +109,11 @@ public class OwnerController {
 
     @PostMapping("/owners/{ownerId}/edit")
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result,
-            @PathVariable("ownerId") int ownerId) {
+                                         @PathVariable("ownerId") int ownerId) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         }
-        
+
         owner.setId(ownerId);
         this.service.save(owner);
         return "redirect:/owners/{ownerId}";
@@ -129,10 +128,7 @@ public class OwnerController {
     @GetMapping("/owners/{ownerId}")
     public ModelAndView showOwner(@PathVariable("ownerId") int ownerId) {
         ModelAndView mav = new ModelAndView("owners/ownerDetails");
-        Owner owner = this.service.ownerById(ownerId);
-        for (Pet pet : owner.getPets()) {
-            pet.setVisitsInternal(this.service.visitsByPetId(pet.getId()));
-        }
+        Owner owner = service.getOwnerWithPets(ownerId);
         mav.addObject(owner);
         return mav;
     }

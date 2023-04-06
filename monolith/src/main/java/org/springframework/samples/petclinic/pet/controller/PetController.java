@@ -17,9 +17,9 @@ package org.springframework.samples.petclinic.pet.controller;
 
 import org.springframework.samples.petclinic.owner.controller.PetForm;
 import org.springframework.samples.petclinic.owner.model.Owner;
-import org.springframework.samples.petclinic.owner.model.Pet;
-import org.springframework.samples.petclinic.owner.model.PetType;
-import org.springframework.samples.petclinic.owner.service.ClinicService;
+import org.springframework.samples.petclinic.pet.model.Pet;
+import org.springframework.samples.petclinic.pet.model.PetType;
+import org.springframework.samples.petclinic.owner.service.OwnerService;
 import org.springframework.samples.petclinic.owner.service.PetFormValidator;
 import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.stereotype.Controller;
@@ -43,10 +43,10 @@ import java.util.Optional;
 public class PetController {
 
     private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
-    private final ClinicService service;
+    private final OwnerService service;
     private final PetService petService;
 
-    public PetController(ClinicService service, final PetService petService) {
+    public PetController(OwnerService service, final PetService petService) {
         this.service = service;
         this.petService = petService;
     }

@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.model;
+package org.springframework.samples.petclinic.pet.model;
 
 import org.monolithic.petclinic.model.NamedEntity;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
+import org.springframework.samples.petclinic.owner.model.Owner;
+import org.springframework.samples.petclinic.visit.model.Visit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

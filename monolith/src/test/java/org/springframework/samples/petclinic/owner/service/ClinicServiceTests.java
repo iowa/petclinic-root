@@ -21,10 +21,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.samples.petclinic.owner.model.Owner;
-import org.springframework.samples.petclinic.owner.model.Pet;
-import org.springframework.samples.petclinic.owner.model.PetType;
-import org.springframework.samples.petclinic.owner.model.Visit;
+import org.springframework.samples.petclinic.pet.model.Pet;
+import org.springframework.samples.petclinic.pet.model.PetType;
+import org.springframework.samples.petclinic.visit.model.Visit;
 import org.springframework.samples.petclinic.pet.service.PetService;
+import org.springframework.samples.petclinic.visit.service.VisitService;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -44,9 +45,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ClinicServiceTests {
 
     @Autowired
-    ClinicService service;
+    OwnerService service;
     @Autowired
     PetService petService;
+    @Autowired
+    VisitService visitService;
 
     @Test
     void shouldFindOwnersByLastName() {
@@ -163,7 +166,7 @@ class ClinicServiceTests {
         pet7.addVisit(visit);
         visit.setDescription("test");
         visit.setCost(100);
-        service.save(visit);
+        visitService.save(visit);
         petService.save(pet7);
 
         pet7 = petService.petById(7);
@@ -173,7 +176,7 @@ class ClinicServiceTests {
 
     @Test
     void shouldFindVisitsByPetId() {
-        Collection<Visit> visits = service.visitsByPetId(7);
+        Collection<Visit> visits = visitService.visitsByPetId(7);
 
         assertThat(visits).hasSize(2);
         Visit[] visitArr = visits.toArray(new Visit[0]);

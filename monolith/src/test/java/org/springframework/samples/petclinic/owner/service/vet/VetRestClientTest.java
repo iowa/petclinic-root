@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.monolithic.petclinic.dto.VetDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.samples.petclinic.owner.service.VetRestClient;
 
 import java.util.Collection;
 

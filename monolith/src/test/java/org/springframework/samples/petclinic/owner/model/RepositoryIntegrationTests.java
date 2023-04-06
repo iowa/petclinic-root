@@ -18,7 +18,8 @@ package org.springframework.samples.petclinic.owner.model;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.samples.petclinic.owner.db.VisitRepository;
+import org.springframework.samples.petclinic.visit.db.VisitRepository;
+import org.springframework.samples.petclinic.visit.model.Visit;
 
 import java.util.List;
 

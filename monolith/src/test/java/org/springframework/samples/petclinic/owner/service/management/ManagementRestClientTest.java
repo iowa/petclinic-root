@@ -4,11 +4,9 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.monolithic.petclinic.dto.VetDTO;
 import org.monolithic.petclinic.dto.YearlyRevenueDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.samples.petclinic.owner.service.VetRestClient;
 
 import java.util.Collection;
 

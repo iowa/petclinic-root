@@ -33,6 +33,7 @@ import org.monolithic.petclinic.model.Person;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
+import org.springframework.samples.petclinic.pet.model.Pet;
 
 /**
  * Simple JavaBean domain object representing an owner.
